@@ -1,32 +1,38 @@
 def remove_elements(list_to_remove_elements):
-    del nombres[0]
-    del nombres[3]
-    del nombres[3]
-    return nombres
+    if len(list_to_remove_elements) >= 1:
+        del list_to_remove_elements [0]
+        del list_to_remove_elements [3:5]
+
+    return list_to_remove_elements
 
 def add_elements(list_to_add_elements):
-    apellidos.insert(0, 'Perez')
-    apellidos.insert(7, 'Gomez')
-    return apellidos 
-
+    list_to_add_elements.insert(0,"Pink")
+    list_to_add_elements.append("Yellow")
+    return list_to_add_elements
 
 def is_empty(list_to_check):
-    if len(lista) == 0:
-        return lista
+    if list_to_check == []:
+        answer = True
+    else:
+        answer = False
+    return answer
 
 def check_lists(list_to_compare1, list_to_compare2):
-    if len(apodos)>2 and len(nombresh)>2:
-        return apodos[2] == nombresh[2]
-      
+    if (len(list_to_compare1) >= 3) and (len(list_to_compare2) >= 3):
+        if list_to_compare1[2] == list_to_compare2[2]:
+            answer = True
+        else:
+            answer = False
+    elif (len(list_to_compare1) < 3) or (len(list_to_compare2) < 3):
+        answer = False
+    return answer
 
 def list_of_lists(list_of_lists_to_modify):
-    if len(familia[0]) > 2 and len(familia[1]) > 4: 
-        return familia[0][:2] , familia[1][1:4] , familia[2][-2:]
-
-nombres = ['Marina', 'Mora', 'Milagros', 'Mia', 'Maggie', 'Manuela']
-apellidos = ['Fernandez', 'Fiore', 'Fiorentino', 'Ferrari']
-lista = ['']
-apodos = ['Rufi', 'Lola', 'Camilos', 'Ferno', 'Mataholic', 'Angel']
-nombresh = ['Marcelo', 'Marcos', 'Camilo', 'Milo', 'Monse']
-familia = [['Milagros','Santiago','Benicio','Dolores','Nahuel'], ['Matias','Sonia','Nina','Annie','Milagros','Santiago'], ['Tigra','Nicky','Tomi','Vainilla','Licha','Leon']]
-
+    result = []
+    if len(list_of_lists_to_modify) > 0:
+        result.append(list_of_lists_to_modify[0][:2])
+    if len(list_of_lists_to_modify) > 1:
+        result.append(list_of_lists_to_modify[1][1:4])
+    if len(list_of_lists_to_modify) > 2:
+        result.append(list_of_lists_to_modify[2][-2:])
+    return result
